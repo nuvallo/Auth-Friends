@@ -1,7 +1,6 @@
 import React from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { axiosWithAuth } from "../utils/axiosWithAuth.js";
-import { BrowserRouter as Router } from "react-router-dom";
 
 class Login extends React.Component {
   state = {

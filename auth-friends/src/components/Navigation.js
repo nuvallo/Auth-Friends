@@ -10,7 +10,7 @@ const NavBar = () => {
 
         <Nav className="mr-auto" navbar>
           <NavItem>
-            <NavLink href="/components/">Login</NavLink>
+            <NavLink href="/">Login</NavLink>
           </NavItem>
         </Nav>
       </Navbar>
