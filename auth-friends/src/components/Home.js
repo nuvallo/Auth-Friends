@@ -1,19 +1,11 @@
-import React, { useState } from "react";
-import {
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
-  Button
-} from "reactstrap";
+import React from "react";
+import FriendsList from "./FriendsList";
 
 const Home = () => {
-  const { friends, setFriends } = useState([]);
   return (
     <div>
       <h1>Welcome User</h1>
+      <FriendsList />
     </div>
   );
 };
