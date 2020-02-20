@@ -55,12 +55,16 @@
   color: white;
 }
 
-.card {
-  max-width: 1000px;
-  margin: auto;
-  margin: 5%;
+.friend-card {
+  max-width: 500px;
+  margin: 5% auto;
 }
 
 .card-btn {
   margin: 5%;
+}
+
+.add-friend-form {
+  max-width: 800px;
+  margin: 2% auto;
 }

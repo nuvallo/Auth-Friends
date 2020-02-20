@@ -12,13 +12,11 @@ const FriendsCard = ({ friend }) => {
   return (
     <>
       {friend.map(person => (
-        <Card>
+        <Card className="friend-card">
           <CardBody>
             <CardTitle>{person.name}</CardTitle>
             <CardSubtitle>Age: {person.age}</CardSubtitle>
             <CardText>Email: {person.email}</CardText>
-            <Button>Edit</Button>
-            <Button>Delete</Button>
           </CardBody>
         </Card>
       ))}

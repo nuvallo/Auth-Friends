@@ -27,7 +27,7 @@ const AddFriend = () => {
   };
 
   return (
-    <Form onSubmit={submitFriend}>
+    <Form className="add-friend-form" onSubmit={submitFriend}>
       <FormGroup>
         <Label for="name">Name</Label>
         <Input
