@@ -1,69 +1,64 @@
-import React from "react";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import { axiosWithAuth } from "../utils/axiosWithAuth.js";
-import Loader from "react-loader-spinner";
+import React, { useState } from "react";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { Button, Form, FormGroup, Label } from "reactstrap";
 
-class Login extends React.Component {
-  state = {
-    credentials: {
-      username: "",
-      password: ""
-    }
+const Login = props => {
+  const [credentials, setCredentials] = useState({
+    username: "",
+    password: ""
+  });
+
+  const handleChange = event => {
+    setCredentials({ ...credentials, [event.target.name]: event.target.value });
   };
 
-  handleChange = e => {
-    this.setState({
-      credentials: {
-        ...this.state.credentials,
-        [e.target.name]: e.target.value
-      }
-    });
-  };
-
-  login = e => {
-    e.preventDefault();
+  const submitLogin = event => {
+    event.preventDefault();
     axiosWithAuth()
-      .post("/login", this.state.credentials)
+      .post("/login", credentials)
       .then(res => {
         localStorage.setItem("token", res.data.payload);
-        this.props.history.push("/protected");
+        props.history.push("/protected");
       })
       .catch(err => {
         localStorage.removeItem("token");
-        console.log("invalid login: ", err);
+        console.log("invalid login ", err);
       });
   };
 
-  render() {
-    return (
-      <Form onSubmit={this.login}>
+  return (
+    <div>
+      <Form className="login" onSubmit={submitLogin}>
         <FormGroup>
-          <Label for="username">Username</Label>
-          <Input
+          <Label className="login-label" for="username">
+            Username
+          </Label>
+          <input
+            className="login-input"
             type="text"
+            placeholder="enter a username"
             name="username"
-            id="username"
-            placeholder="Enter Username"
-            value={this.state.credentials.username}
-            onChange={this.handleChange}
+            value={credentials.username}
+            onChange={handleChange}
           />
         </FormGroup>
         <FormGroup>
-          <Label for="password">Password</Label>
-          <Input
+          <Label className="login-label" for="password">
+            password
+          </Label>
+          <input
+            className="login-input"
             type="password"
+            placeholder="enter a password"
             name="password"
-            id="password"
-            placeholder="Enter Password"
-            value={this.state.credentials.password}
-            onChange={this.handleChange}
+            value={credentials.password}
+            onChange={handleChange}
           />
         </FormGroup>
-
-        <Button>Login</Button>
+        <Button>Log In</Button>
       </Form>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default Login;

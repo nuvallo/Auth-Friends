@@ -37,6 +37,24 @@
   }
 }
 
+.login-input {
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.login {
+  margin: 20vh auto;
+  background-color: #333;
+  max-width: 500px;
+  padding: 50px;
+  border-radius: 20px;
+}
+
+.login-label {
+  margin-right: 2%;
+  color: white;
+}
+
 .card {
   max-width: 1000px;
   margin: auto;
